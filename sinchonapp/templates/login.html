@@ -1,0 +1,20 @@
+{% load socialaccount %}
+{% load static %}
+<form action="{% url 'login' %}" method="POST">
+    {% csrf_token %}
+    username: <input type="text" name="username"> <br>
+    password: <input type="password" name="password">
+    <br>
+    <input type="submit" value="로그인">
+</form>
+
+<a href="">
+    <!-- <img class='avatar' src="{% static 'img/Avatar.png'%}" alt=""> -->
+    <p>회원가입</p>
+</a>
+
+
+<a href="{% provider_login_url 'kakao' %}">
+    <!-- <img class='avatar' src="{% static 'img/Avatar.png'%}" alt=""> -->
+    <p>카카오톡 소셜 로그인</p>
+</a>

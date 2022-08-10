@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load socialaccount %}
+{% load static %}
+{% block content %}
+<div class="medii-part">
+
+    <article class="start">
+        <div class="word1-box">
+            <p class="word1">신촌톤 <span class="ingredient">참가 신청 후</span><br>
+                마이페이지를 <br>
+                확인할 수 있습니다.
+            </p>
+        </div>
+
+        <div class="camga_click">
+            <img src="{% static 'img/l_hand.png'%}" alt="">
+            {% if user.is_authenticated %}
+            <a href="{% url 'sinchong' %}">
+                <img src="{% static 'img/cham_click.png'%}" alt="">
+            </a>
+            {% else %}
+            <a href="{% provider_login_url 'kakao' %}">
+                <img src="{% static 'img/cham_click.png' %}" alt="">
+            </a>
+            {% endif %}
+            <img src="{% static 'img/r_hand.png'%}" alt="">
+        </div>
+        <div class="word2-box">
+            <p class="word2">위 버튼을 눌러 지원서를 작성해주세요</p>
+        </div>
+
+    </article>
+
+
+</div>
+
+{% endblock %}
