@@ -45,7 +45,9 @@
     <div class="total_box">
         <div>
             <nav>
-                <img class="logo" src="{% static 'img/logo.png'%}" alt="">
+                <a href="{% url 'home' %}">
+                    <img class="logo" src="{% static 'img/logo.png'%}" alt="">
+                </a>
                 {% if user.is_authenticated %}
 
                 <a href="{% url 'mypage' %}">
