@@ -1,7 +1,6 @@
 @font-face {
 	font-family: 'DX';
 	src: url('/static/font/DXMobrRExtraBold-KSCpc-EUC-H.woff') format('woff');
-
 }
 
 body {
@@ -51,7 +50,7 @@ body {
 	font-family: 'DX';
 	font-size: 50px;
 	position: absolute;
-	top: 50px;
+	top: 100px;
 }
 
 .sinchonthon-period {
@@ -84,8 +83,6 @@ body {
 .timer-notice {
 	margin-top: 10px;
 }
-
-
 
 .camga_click {
 	position: relative;
@@ -248,27 +245,27 @@ li {
 	cursor: pointer;
 }
 
-[id='slide01']:checked~.slidelist .slideitem {
+[id='slide01']:checked ~ .slidelist .slideitem {
 	transform: translateX(0);
 	animation: slide01 20s infinite;
 }
 
-[id='slide02']:checked~.slidelist .slideitem {
+[id='slide02']:checked ~ .slidelist .slideitem {
 	transform: translateX(-100%);
 	animation: slide02 20s infinite;
 }
 
-[id='slide03']:checked~.slidelist .slideitem {
+[id='slide03']:checked ~ .slidelist .slideitem {
 	transform: translateX(-200%);
 	animation: slide03 20s infinite;
 }
 
-[id='slide04']:checked~.slidelist .slideitem {
+[id='slide04']:checked ~ .slidelist .slideitem {
 	transform: translateX(-300%);
 	animation: slide04 20s infinite;
 }
 
-[id='slide05']:checked~.slidelist .slideitem {
+[id='slide05']:checked ~ .slidelist .slideitem {
 	transform: translateX(-400%);
 	animation: slide05 20s infinite;
 }
@@ -509,7 +506,6 @@ li {
 } */
 
 .pagination {
-
 	font-size: 16px;
 	color: #ff9e1b;
 }
@@ -547,6 +543,11 @@ li {
 }
 
 .about-content {
+	font-size: 13px;
+	margin-top: 20px;
+	margin-left: 20px;
+}
+.about-content > li {
 	font-size: 13px;
 	margin-top: 20px;
 	margin-left: 20px;

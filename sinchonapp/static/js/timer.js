@@ -1,5 +1,5 @@
-CountDownTimer('08/01/2022', 'applystart');
-CountDownTimer('08/14/2022', 'applyend');
+CountDownTimer('08/16/2022', 'applystart');
+CountDownTimer('08/20/2022', 'applyend');
 CountDownTimer('08/27/2022', 'programstart');
 
 function CountDownTimer(dt, id) {
