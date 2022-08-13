@@ -19,9 +19,7 @@
 			신촌톤 지원 <span class="highlight">시작</span>까지
 		</p>
 		<div id="applystart"></div>
-		<!-- <div class="applystart-button">
-            <a href=""><img src="" alt="" /></a>
-        </div> -->
+		
 
 		<div class="camga_click">
 			<img src="{% static 'img/l_hand.png'%}" alt="" />
@@ -125,51 +123,49 @@
 			</ul>
 		</div>
 	</div>
-	<!-- <script src="../static/js/slide.js"></script> -->
-	<div id="moveSlide"></div>
-	<div class="pagination">
+	<!-- <div class="pagination">
 		<div style="margin: auto">1 2 3 4 5</div>
-	</div>
+	</div> -->
 </div>
 <div class="about-sinchonthon">
 	<div class="about-contents">
 		<p class="about-title">신촌톤이란?</p>
-		<p class="about-semititle">신촌톤의 목적</p>
+		<p class="about-semititle">﹒신촌톤의 목적</p>
 		<p class="about-content">
 			<li class="about-content">멋쟁이사자처럼 대학에서 한 학기 동안 학습한 내용을 바탕으로 <br />타 대학 멋쟁이사자처럼 대학 학생들과 개발을 진행하여 협업에 <br />대한 경험을 제공</li>
             <li class="about-content">1박 2일동안 멋쟁이사자처럼 대학 학생들과 개발을 진행하면서 <br />상호 협력 및 발전을 목표로 코딩에 대한 즐거움과 학습효과 제공</li>
             <li class="about-content">멋쟁이사자처럼 대학 연합 대학교의 친목 도모</li>
 		</p>
 
-		<p class="about-semititle">신촌톤 참여 대학</p>
+		<p class="about-semititle">﹒신촌톤 참여 대학</p>
 		<div class="sinchon-schools">
 			<div class="school">
 				<img class="logo" src="../static/img/390px (1)/yonsei_logo.png" />
-				<p>연세대학교</p>
+				<p id="school" style="margin-top: 5px">연세대학교</p>
 			</div>
 			<div class="school">
 				<img class="logo" src="../static/img/390px (1)/sugang_logo.png" />
-				<p>서강대학교</p>
+				<p id="school" style="margin-top: 5px">서강대학교</p>
 			</div>
 			<div class="school">
 				<img class="logo" src="../static/img/390px (1)/ewha_logo.png" />
-				<p id="logo-ewha">이화여자대학교</p>
+				<p id="logo-ewha" style="margin-top: 5px">이화여자대학교</p>
 			</div>
 			<div class="school">
 				<img class="logo" src="../static/img/390px (1)/hongik_logo.png" />
-				<p>홍익대학교</p>
+				<p id="school" style="margin-top: 5px">홍익대학교</p>
 			</div>
 		</div>
 		<div class="team">
-			<p class="about-semititle">팀 구성 방법</p>
+			<p class="about-semititle">﹒팀 구성 방법</p>
 			<p class="about-content">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-				veniam, quis nostrud exercitation ullamco laboris nisi ut
+				4~5명의 기획디자인, 프론트엔드, 백엔드 트랙에 비율을 맞추어<br />
+				다른 대학의 아기사자들과 팀빌딩을 합니다. 다른 대학의 사람들과 <br />
+				함께 멋진 서비스를 만들어 주세요! 😯
 			</p>
 		</div>
 		<div class="award">
-			<p class="about-semititle">수상 및 기준</p>
+			<p class="about-semititle">﹒수상 및 기준</p>
 			<p class="about-content">
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -186,7 +182,7 @@
 					자세한 타임라인이 궁금하다면?<br />아래 버튼을 클릭해보세요!
 				</p>
 				<div class="timeline-open">진행 타임라인 한눈에 보기 ⏰👀</div>
-				<div class="timeline-modal">
+				<!-- <div class="timeline-modal">
 					<p>
 						Lorem ipsum, dolor sit amet consectetur adipisicing elit.
 						Consectetur quam nobis quis corrupti amet maxime neque, optio, in
@@ -194,7 +190,7 @@
 						consectetur magni soluta!
 					</p>
 					<button class="close-modal">✖</button>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>
@@ -237,12 +233,52 @@
 
 	<p class="about-semititle">장소제공</p>
 	<div class="sinchon-schools">
-		<img src="" />
+		<img src="static/img/ictcoc.jpeg" style="height: 63px;"/>
 	</div>
-	<p class="about-semititle">제품제공</p>
-	<div class="sinchon-schools"></div>
+	<!-- <p class="about-semititle">제품제공</p>
+	<div class="sinchon-schools"></div> -->
 	<p class="about-semititle">운영진</p>
-	<div class="sinchon-schools"></div>
+	<div class="sinchon-schools">
+		<div class="school">
+			<img class="logo" src="../static/img/390px (1)/yonsei_logo.png" />
+			<p id="school" style="margin-top: 5px">연세대학교</p>
+			<div id="manage-members">
+				<p>박진효</p>
+				<p>김희연</p>
+				<p>이수민</p>
+				<p>전솔아</p>
+			</div>
+		</div>
+		<div class="school">
+			<img class="logo" src="../static/img/390px (1)/sugang_logo.png" />
+			<p id="school" style="margin-top: 5px">서강대학교</p>
+			<div id="manage-members">
+				<p>김찬수</p>
+				<p>박다빈</p>
+				<p>김동윤</p>
+				<p>이육샛별</p>
+			</div>
+		</div>
+		<div class="school">
+			<img class="logo" src="../static/img/390px (1)/ewha_logo.png" />
+			<p id="logo-ewha" style="margin-top: 5px">이화여자대학교</p>
+			<div id="manage-members">
+				<p>김혜빈</p>
+				<p>김도연</p>
+			</div>
+		</div>
+		<div class="school">
+			<img class="logo" src="../static/img/390px (1)/hongik_logo.png" />
+			<p id="school" style="margin-top: 5px">홍익대학교</p>
+			<div id="manage-members">
+				<p>김유진</p>
+				<p>김도연</p>
+				<p>김지후</p>
+				<p>박선형</p>
+				<p>이은</p>
+			</div>
+		</div>
+	</div>
 </div>
 <div class="contact mb-5">
 	<p class="about-title">운영진 연락처</p>
@@ -261,8 +297,8 @@
 			/>
 			<div>
 				<p class="contact-name">연세대학교 대표 박진효</p>
-				<span class="contact-number">010-xxxx-xxxx</span>
-				<span class="contact-email">연세대@이메일</span>
+				<span class="contact-number">010-2044-4630 ￜ </span>
+				<span class="contact-email">vkstk0131@yonsei.ac.kr</span>
 			</div>
 		</div>
 		<div class="manage-contact">
@@ -274,8 +310,8 @@
 			/>
 			<div>
 				<p class="contact-name">서강대학교 대표 김찬수, 박다빈</p>
-				<span class="contact-number">010-xxxx-xxxx</span>
-				<span class="contact-email">서강대@이메일</span>
+				<span class="contact-number">010-4168-8703 ￜ </span>
+				<span class="contact-email">gamgyut777@sogang.ac.kr</span>
 			</div>
 		</div>
 		<div class="manage-contact">
@@ -287,8 +323,8 @@
 			/>
 			<div>
 				<p class="contact-name">이화여자대학교 대표 김혜빈</p>
-				<span class="contact-number">010-xxxx-xxxx</span>
-				<span class="contact-email">이화여대@이메일</span>
+				<span class="contact-number">010-2085-5585 ￜ </span>
+				<span class="contact-email">ewha@likelion.org</span>
 			</div>
 		</div>
 		<div class="manage-contact">
@@ -300,8 +336,8 @@
 			/>
 			<div>
 				<p class="contact-name">홍익대학교 대표 김유진</p>
-				<span class="contact-number">010-xxxx-xxxx</span>
-				<span class="contact-email">홍익대@이메일</span>
+				<span class="contact-number">010-9937-4176 ￜ </span>
+				<span class="contact-email">gene028@naver.com</span>
 			</div>
 		</div>
 	</div>
