@@ -192,7 +192,8 @@ a .apply-button {
 	box-sizing: border-box;
 }
 
-.management-img ul, li {
+.management-img ul,
+li {
 	list-style: none;
 }
 
@@ -242,27 +243,27 @@ a .apply-button {
 	cursor: pointer;
 }
 
-[id='slide01']:checked ~ .slidelist .slideitem {
+[id='slide01']:checked~.slidelist .slideitem {
 	transform: translateX(0);
 	animation: slide01 20s infinite;
 }
 
-[id='slide02']:checked ~ .slidelist .slideitem {
+[id='slide02']:checked~.slidelist .slideitem {
 	transform: translateX(-140%);
 	animation: slide02 20s infinite;
 }
 
-[id='slide03']:checked ~ .slidelist .slideitem {
+[id='slide03']:checked~.slidelist .slideitem {
 	transform: translateX(-280%);
 	animation: slide03 20s infinite;
 }
 
-[id='slide04']:checked ~ .slidelist .slideitem {
+[id='slide04']:checked~.slidelist .slideitem {
 	transform: translateX(-420%);
 	animation: slide04 20s infinite;
 }
 
-[id='slide05']:checked ~ .slidelist .slideitem {
+[id='slide05']:checked~.slidelist .slideitem {
 	transform: translateX(-560%);
 	animation: slide05 20s infinite;
 }
@@ -544,7 +545,8 @@ a .apply-button {
 	margin-top: 20px;
 	margin-left: 20px;
 }
-.about-content > li {
+
+.about-content>li {
 	font-size: 13px;
 	margin-top: 20px;
 	margin-left: 20px;
@@ -586,7 +588,8 @@ a .apply-button {
 	top: 60px;
 	font-family: 'Noto Sans KR';
 	font-style: normal;
-	font-weight: 700;;
+	font-weight: 700;
+	;
 }
 
 #logo-ewha {
@@ -627,6 +630,16 @@ a .apply-button {
 	color: black;
 	padding: 2% 0;
 	margin-bottom: 20px;
+}
+
+.timeline-board {
+	display: none;
+	padding-top: 20px;
+	text-align: center;
+	position: relative;
+	box-sizing: border-box;
+	border: 1px solid #323232;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .highlight {
@@ -729,6 +742,7 @@ a .apply-button {
 .contact-number {
 	font-size: 13px;
 }
+
 .contact-email {
 	margin-bottom: 15px;
 	font-size: 13px;
