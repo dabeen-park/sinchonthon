@@ -152,9 +152,9 @@
 		<div class="award">
 			<p class="about-semititle">﹒수상 및 기준</p>
 			<p class="about-content">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-				veniam, quis nostrud exercitation ullamco laboris nisi ut
+				- 40% : 사업계획서 및 사업발표자료 및 발표<br>(mvp를 기반으로 확장성 및 시장 조사)
+				<br>
+				- 60% : 개발 기술 구현
 			</p>
 		</div>
 		<div class="sinchonthon-inform">
@@ -162,7 +162,7 @@
 				<div class="inform-title">
 					<span class="highlight">신촌톤</span> 정보 모아보기
 				</div>
-				<img class="sinchon-inform" src="../static/img/sinchon-inform.png" />
+				<img class="sinchon-inform" src="../static/img/information_table.png" />
 				<p class="timeline-notice">
 					자세한 타임라인이 궁금하다면?<br />아래 버튼을 클릭해보세요!
 				</p>
@@ -192,29 +192,39 @@
 	<div class="fqa-container">
 		<img src="../static/img/390px (1)/fqabackground(390px).png" width="390px" height="352px" />
 		<div class="fqa-images">
-			<div>
+			<div onclick="answershow(id)" id="1">
 				<img src="../static/img/snack(390x390).png" />
 			</div>
-			<div>
+			<div onclick="answershow(id)" id="2">
 				<img src="../static/img/rest(390x390).png" />
 			</div>
-			<div>
+			<div onclick="answershow(id)" id="3">
 				<img src="../static/img/outside(390x390).png" />
 			</div>
-			<div>
+			<div onclick="answershow(id)" id="4">
 				<img src="../static/img/givesnack(1440px).png" />
 			</div>
-			<div>
+			<div onclick="answershow(id)" id="5">
 				<img src="../static/img/soju(390x390).png" />
 			</div>
-			<div>
+			<div onclick="answershow(id)" id="6">
 				<img src="../static/img/closed(1440px).png" />
 			</div>
 		</div>
 		<div class="fqa-guide">
 			궁금한 내용에 대한 포스터를 클릭하면<br />질문이 아래로 나타나요!✨
 		</div>
+
+
 	</div>
+	<div class="answeris">
+		<p class="questiontype" style="position:relative; left:10px;"><span class="highlight">Q.</span> 음주 가능한가요? 🍻</p>
+
+		<p class="answertype">절대절대로 불가능합니다. <br>
+			맥주 한캔도 불가합니다. 🍺 몰래 가져오시면 운영진이 몰래 뺏어갈겁니다.</p>
+
+	</div>
+
 </div>
 <div class="support">
 	<div class="about-title">함께해주셔서 감사합니다</div>
@@ -317,6 +327,17 @@
 	integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
 	crossorigin="anonymous"></script>
 <script>
+
+	var q = {
+		1: { 'question': '<span class="highlight">Q.</span> 간식 섭취(외부음식은)<br>   어떻게 해야 하나요?', 'answer': '외부 음식 반입은 간단한 간식거리와 음료만 가능합니다. 그렇다고 짜장면 싸오시면 안됩니다! 해커톤 장소에 정수기가 구비되어 있으니 개인 텀블러 지참해주세요😉' },
+		2: { 'question': '<span class="highlight">Q.</span> 휴식시간이 따로 있나요?', 'answer': '휴식시간은 따로 없습니다. 개발 시간에 팀원들과 협의하여 자율적으로 휴식해주세요.' },
+		3: { 'question': '<span class="highlight">Q.</span> 외출 가능하나요?', 'answer': '외출 불가능합니다. 도망가지 마세요 🥺' },
+		4: { 'question': '<span class="highlight">Q.</span> 간식을 제공하나요?', 'answer': '초코바와 젤리, 레드불과 같은 간단한 주전부리를 제공할 예정입니다. 또한 야식으로는 홍루이젠 샌드위치가 제공되고, 아침식사로는 본도시락이 제공됩니다.' },
+		5: { 'question': '<span class="highlight">Q.</span> 음주 가능한가요? 🍻', 'answer': '맥주 한캔도 불가합니다. 🍺 몰래 가져오시면 운영진이 몰래 뺏어갈겁니다.' },
+		6: { 'question': '<span class="highlight">Q.</span> 일찍 끝나는 팀은 어떻게<br> 해야 하나요?', 'answer': '일찍 끝나는 팀은 발표 준비를 해주시면 됩니다!' }
+
+	}
+
 	function timelineis() {
 		// 타임라인 뜨도록하기
 		$(".timeline-board").show();
@@ -325,6 +346,12 @@
 	function timelinec() {
 		//타임라인 닫도록 하기
 		$(".timeline-board").hide();
+	}
+
+	function answershow(id) {
+		//사진 클릭할 때마다 질문에 대한 답이 보이도록 하기
+		$(".questiontype").html(q[id]['question']);
+		$(".answertype").html(q[id]['answer']);
 	}
 </script>
 {% endblock %}

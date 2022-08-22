@@ -13,10 +13,11 @@ def mypage(request):
     # author id만 가져와서 비교....
     blogs = Person.objects.all()
     blog_list = blogs.filter(author_id=request.user.id)
-    post = blog_list[0]
-    p_team = post.team
-    team_list = blogs.filter(team=p_team)
+
     if blog_list.count() != 0:  # 만약 신청서를 하나라도 냈다면
+        post = blog_list[0]
+        p_team = post.team
+        team_list = blogs.filter(team=p_team)
         blog_team = blog_list[0].team
         if not blog_team:  # 만약 팀칸이 비어있다면,
             return render(request, 'sinchong2.html')
