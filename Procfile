@@ -1,1 +1,1 @@
-web: gunicorn sinchonthon.wsgi
+web: gunicorn sinchonthon.wsgi  --log-file -
