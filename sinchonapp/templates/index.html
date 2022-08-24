@@ -16,10 +16,57 @@
 <div class="countdown-page">
 	<div class="timer">
 		<p class="timer-notice">
-			신촌톤 지원 <span class="highlight">시작</span>까지
+			신촌톤 지원 <span class="highlight">마감</span>까지
 		</p>
-		<div id="applystart"></div>
+		<div id="applyend"></div>
+		<script>
+			CountDownTimer('08/25/2022 18:00', 'applyend')
+			function CountDownTimer(dt, id) {
+				var end = new Date(dt);
 
+				var _second = 1000;
+				var _minute = _second * 60;
+				var _hour = _minute * 60;
+				var _day = _hour * 24;
+				var timer;
+
+				function showRemaining() {
+					var now = new Date();
+					var distance = end - now;
+					if (distance < 0) {
+						clearInterval(timer);
+						document.getElementById('applyend').innerHTML = '지원 마감!';
+						return;
+					}
+					var days = Math.floor(distance / _day);
+					var hours = Math.floor((distance % _day) / _hour);
+					var minutes = Math.floor((distance % _hour) / _minute);
+					var seconds = Math.floor((distance % _minute) / _second);
+
+					document.getElementById('applyend').innerHTML = 'D-' + days + ' ';
+					if (hours < 10) {
+						document.getElementById('applyend').innerHTML += '0' + hours + ' : ';
+					}
+					else {
+						document.getElementById('applyend').innerHTML += hours + ' : ';
+					}
+					if (minutes < 10) {
+						document.getElementById('applyend').innerHTML += '0' + minutes + ' : ';
+					}
+					else {
+						document.getElementById('applyend').innerHTML += minutes + ' : ';
+					}
+					if (seconds < 10) {
+						document.getElementById('applyend').innerHTML += '0' + seconds;
+					}
+					else {
+						document.getElementById('applyend').innerHTML += seconds;
+					}
+				}
+
+				timer = setInterval(showRemaining, 1000);
+			}
+		</script>
 
 		<div class="camga_click">
 			<img src="{% static 'img/l_hand.png'%}" alt="" />
@@ -36,18 +83,6 @@
 		</div>
 		<p class="apply-guideline">위 버튼을 눌러 지원서를 작성해주세요</p>
 	</div>
-	<!-- 
-    <div class="timer">
-        신촌톤 지원 <span class="timer-highlight">마감</span>까지
-        <div id="applyend"></div>
-        <br />
-    </div>
-
-    <div class="timer">
-        신촌톤 <span class="timer-highlight">시작</span>까지
-        <div id="programstart"></div>
-        <br />
-    </div> -->
 </div>
 <div class="management-page">
 	<div class="management-title">
@@ -107,9 +142,6 @@
 			</ul>
 		</div>
 	</div>
-	<!-- <div class="pagination">
-		<div style="margin: auto">1 2 3 4 5</div>
-	</div> -->
 </div>
 <div class="about-sinchonthon">
 	<div class="about-contents">
@@ -150,11 +182,23 @@
 			</p>
 		</div>
 		<div class="award">
-			<p class="about-semititle">﹒수상 및 기준</p>
+			<p class="about-semititle">﹒개발 방법</p>
 			<p class="about-content">
-				- 40% : 사업계획서 및 사업발표자료 및 발표<br>(mvp를 기반으로 확장성 및 시장 조사)
-				<br>
-				- 60% : 개발 기술 구현
+				<ul class="about-content">
+					<li>개발 스택: html/css, javascript, react, django 중 자유롭게 활용</li>
+					<li>주제: <span class="highlight">오프라인 활동을 활성화할 수 있는 모든 서비스</span></li>
+				</ul>
+			</p>
+		</div>
+		<div class="award">
+			<p class="about-semititle">﹒수상 및 평가 기준</p>
+			<p class="about-content">
+				<ul class="about-content">
+					<li>7팀 중 <span class="highlight">2팀</span> 수상 예정</li>
+					<li>평가 방법: 신촌 해커톤 참가 운영진 내부 평가 <br />*운영진이 마련한 점수표에 따라 공정하게 채점할 예정입니다!</li>
+					<li>평가 기준: 해커톤 진행시 공개됩니다.</li>
+					<li>평가 비율: 사업계획서 및 사업발표자료 및 발표(40%),<br />기술 구현도(60%)</li>
+				</ul>
 			</p>
 		</div>
 		<div class="sinchonthon-inform">
@@ -167,17 +211,7 @@
 					자세한 타임라인이 궁금하다면?<br />아래 버튼을 클릭해보세요!
 				</p>
 				<div class="timeline-open" onclick="timelineis();">진행 타임라인 한눈에 보기 ⏰👀</div>
-				<!-- <div class="timeline-modal">
-					<p>
-						Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-						Consectetur quam nobis quis corrupti amet maxime neque, optio, in
-						illo, voluptatibus consequuntur! Rerum quo ea nulla qui, maxime
-						consectetur magni soluta!
-					</p>
-					<button class="close-modal">✖</button>
-				</div> -->
 				<div class="timeline-board">
-
 					⏰ 타임라인 ⏰
 					<img src="{% static '/img/timeline.png' %}" alt="">
 					<div class="timeline-open" onclick="timelinec()">닫기</div>
@@ -190,41 +224,97 @@
 <div class="fqa-page">
 	<div class="about-title">FQA</div>
 	<div class="fqa-container">
-		<img src="../static/img/390px (1)/fqabackground(390px).png" width="390px" height="352px" />
+		<img
+			src="../static/img/390px (1)/fqabackground(390px).png"
+			width="390px"
+			height="352px"
+		/>
 		<div class="fqa-images">
-			<div onclick="answershow(id)" id="1">
+			<div class="question1">
 				<img src="../static/img/snack(390x390).png" />
 			</div>
-			<div onclick="answershow(id)" id="2">
+			<div class="question2">
 				<img src="../static/img/rest(390x390).png" />
 			</div>
-			<div onclick="answershow(id)" id="3">
+			<div class="question3">
 				<img src="../static/img/outside(390x390).png" />
 			</div>
-			<div onclick="answershow(id)" id="4">
+			<div class="question4">
 				<img src="../static/img/givesnack(1440px).png" />
 			</div>
-			<div onclick="answershow(id)" id="5">
+			<div class="question5">
 				<img src="../static/img/soju(390x390).png" />
 			</div>
-			<div onclick="answershow(id)" id="6">
+			<div class="question6">
 				<img src="../static/img/closed(1440px).png" />
 			</div>
 		</div>
 		<div class="fqa-guide">
 			궁금한 내용에 대한 포스터를 클릭하면<br />질문이 아래로 나타나요!✨
 		</div>
-
-
+		<div class="fqa-answers">
+			<div class="answer1">
+				<strong><span id="Q">Q.</span>외부음식 반입 가능한가요?</strong>
+				<p>
+					간단한 간식거리와 음료만 반입 가능합니다. 그렇다고 짜장면 싸오시면 안됩니다!<br />
+					해커톤 장소에 정수기가 구비되어 있어 물을 따로 준비할 필요는 없지만, 개인 텀블러를 지참해주세요😉
+				</p>
+			</div>
+			<div class="answer2">
+				<strong><span id="Q">Q.</span>휴식 시간이 따로 있나요?</strong>
+				<p>
+					휴식시간은 따로 없습니다. 개발 시간에 팀원들과 협의하여 자율적으로 휴식해주세요.
+				</p>
+			</div>
+			<div class="answer3">
+				<strong><span id="Q">Q.</span>외출 가능한가요?</strong>
+				<p>
+					외출은 불가능합니다. 도망가지 마세요😈
+				</p>
+			</div>
+			<div class="answer4">
+				<strong><span id="Q">Q.</span>간식을 제공하나요?</strong>
+				<p>
+					초코바와 젤리, 레드불과 같은 간단한 주전부리를 제공할 예정입니다. 또한 야식으로는 홍루이젠 샌드위치가 제공되고, 아침식사로는 본도시락이 제공됩니다.
+				</p>
+			</div>
+			<div class="answer5">
+				<strong><span id="Q">Q.</span>술을 마셔도 되나요?</strong>
+				<p>
+					금주입니다. 몰래 가져오시면 운영진이 몰래 훔쳐갑니다. ^^ 🍺
+				</p>
+			</div>
+			<div class="answer6">
+				<strong><span id="Q">Q.</span>개발이 일찍 끝나는 팀은 <br />무엇을 하나요?</strong>
+				<p>
+					개발이 일찍 끝나는 팀은 발표 준비를 하거나 자유롭게 휴식을 취해주시면 됩니다.
+				</p>
+			</div>
+		</div>
+		<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+		<script>
+			$(document).ready(function() {
+    			$('.question1').click(function() {
+        			$('.answer1').slideToggle(400);
+				});
+				$('.question2').click(function() {
+					$('.answer2').slideToggle(400);
+				});
+				$('.question3').click(function() {
+					$('.answer3').slideToggle(400);
+				});
+				$('.question4').click(function() {
+				$('.answer4').slideToggle(400);
+				});
+				$('.question5').click(function() {
+					$('.answer5').slideToggle(400);
+				});
+				$('.question6').click(function() {
+				$	('.answer6').slideToggle(400);
+    			});
+			});
+		</script> -->
 	</div>
-	<div class="answeris">
-		<p class="questiontype" style="position:relative; left:10px;"><span class="highlight">Q.</span> 음주 가능한가요? 🍻</p>
-
-		<p class="answertype">절대절대로 불가능합니다. <br>
-			맥주 한캔도 불가합니다. 🍺 몰래 가져오시면 운영진이 몰래 뺏어갈겁니다.</p>
-
-	</div>
-
 </div>
 <div class="support">
 	<div class="about-title">함께해주셔서 감사합니다</div>
@@ -233,8 +323,7 @@
 	<div class="sinchon-schools">
 		<img src="static/img/ictcoc.jpeg" style="height: 63px;" />
 	</div>
-	<!-- <p class="about-semititle">제품제공</p>
-	<div class="sinchon-schools"></div> -->
+	
 	<p class="about-semititle">운영진</p>
 	<div class="sinchon-schools">
 		<div class="school">
@@ -263,6 +352,7 @@
 			<div id="manage-members">
 				<p>김혜빈</p>
 				<p>김도연</p>
+				<p>정다윤</p>
 			</div>
 		</div>
 		<div class="school">
@@ -323,20 +413,12 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
 	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 	crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
 	crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script>
-
-	var q = {
-		1: { 'question': '<span class="highlight">Q.</span> 간식 섭취(외부음식은)<br>   어떻게 해야 하나요?', 'answer': '외부 음식 반입은 간단한 간식거리와 음료만 가능합니다. 그렇다고 짜장면 싸오시면 안됩니다! 해커톤 장소에 정수기가 구비되어 있으니 개인 텀블러 지참해주세요😉' },
-		2: { 'question': '<span class="highlight">Q.</span> 휴식시간이 따로 있나요?', 'answer': '휴식시간은 따로 없습니다. 개발 시간에 팀원들과 협의하여 자율적으로 휴식해주세요.' },
-		3: { 'question': '<span class="highlight">Q.</span> 외출 가능하나요?', 'answer': '외출 불가능합니다. 도망가지 마세요 🥺' },
-		4: { 'question': '<span class="highlight">Q.</span> 간식을 제공하나요?', 'answer': '초코바와 젤리, 레드불과 같은 간단한 주전부리를 제공할 예정입니다. 또한 야식으로는 홍루이젠 샌드위치가 제공되고, 아침식사로는 본도시락이 제공됩니다.' },
-		5: { 'question': '<span class="highlight">Q.</span> 음주 가능한가요? 🍻', 'answer': '맥주 한캔도 불가합니다. 🍺 몰래 가져오시면 운영진이 몰래 뺏어갈겁니다.' },
-		6: { 'question': '<span class="highlight">Q.</span> 일찍 끝나는 팀은 어떻게<br> 해야 하나요?', 'answer': '일찍 끝나는 팀은 발표 준비를 해주시면 됩니다!' }
-
-	}
 
 	function timelineis() {
 		// 타임라인 뜨도록하기
@@ -348,10 +430,5 @@
 		$(".timeline-board").hide();
 	}
 
-	function answershow(id) {
-		//사진 클릭할 때마다 질문에 대한 답이 보이도록 하기
-		$(".questiontype").html(q[id]['question']);
-		$(".answertype").html(q[id]['answer']);
-	}
 </script>
 {% endblock %}

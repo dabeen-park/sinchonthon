@@ -141,34 +141,32 @@ a .apply-button {
 	left: 0;
 }
 
-.apply-button-img {
-	position: relative;
-	top: -140px;
-	left: 0px;
-}
-
 .apply-guideline {
 	position: absolute;
 	top: 480px;
 	left: 635px;
 }
 
-#applystart {
-	color: #ff9e1b;
-	font-size: 25px;
-	position: absolute;
-	top: 310px;
-	left: 630px;
+.camga_click {
+	position: relative;
+	top: -10px;
+	text-align: center;
 }
 
 #applyend {
+	position: relative;
+	width: fit-content;
+	margin-top: -25px;
+	margin-left: 90px;
 	color: #ff9e1b;
-	font-size: 25px;
 }
 
 #programstart {
+	position: relative;
+	width: fit-content;
+	margin-top: -25px;
+	margin-left: 90px;
 	color: #ff9e1b;
-	font-size: 25px;
 }
 
 .management-page {
@@ -548,8 +546,9 @@ li {
 
 .about-content>li {
 	font-size: 13px;
+	list-style-type: circle;
 	margin-top: 20px;
-	margin-left: 20px;
+	margin-left: -30px;
 }
 
 .sinchon-schools {
