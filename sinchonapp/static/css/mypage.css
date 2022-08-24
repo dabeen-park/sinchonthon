@@ -327,6 +327,16 @@ footer {
     top: -80px;
 }
 
+
+.school_card_im_2 {
+    position: relative;
+    height: 340px;
+    width: 520px;
+    top: -50px;
+    left: -68px;
+
+}
+
 .t_b_butt {
     position: relative;
     top: -115px

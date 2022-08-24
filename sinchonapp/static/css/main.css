@@ -1,7 +1,6 @@
 @font-face {
 	font-family: 'DX';
 	src: url('/static/font/DXMobrRExtraBold-KSCpc-EUC-H.woff') format('woff');
-
 }
 
 body {
@@ -21,12 +20,6 @@ body {
 }
 
 .title {
-	/* font-family: 'Song Myung', serif; */
-	/* @font-face {
-		font-family: DXMobrRExtraBold-KSCpc-EUC-H;
-		src: url('DXMobrRExtraBold-KSCpc-EUC-H.ttf');
-	} */
-	/* position: absolute; */
 	width: 55px;
 	height: 174px;
 
@@ -50,8 +43,8 @@ body {
 .sinchonthon-title {
 	font-family: 'DX';
 	font-size: 50px;
-	position: absolute;
-	top: 50px;
+	position: relative;
+	top: -270px;
 }
 
 .sinchonthon-period {
@@ -61,6 +54,7 @@ body {
 	/* margin-bottom: 100px; */
 	margin-left: -10px;
 	bottom: 107px;
+	top: -285px;
 }
 
 .countdown-page {
@@ -84,8 +78,6 @@ body {
 .timer-notice {
 	margin-top: 10px;
 }
-
-
 
 .camga_click {
 	position: relative;
@@ -216,7 +208,7 @@ li {
 .slidebox {
 	max-width: 1000px;
 	width: 100%;
-	margin: 0 auto;
+	/* margin: 0 auto; */
 }
 
 .slidebox img {
@@ -226,8 +218,9 @@ li {
 
 .slidebox .slidelist {
 	white-space: nowrap;
-	font-size: 0;
+	/* font-size: 0; */
 	overflow: hidden;
+	/* margin-left: 10px; */
 }
 
 .slidebox .slideitem {
@@ -236,6 +229,8 @@ li {
 	vertical-align: middle;
 	width: 100%;
 	transition: all 0.35s;
+	margin-left: -20px;
+	margin-right: 50px;
 }
 
 .slidebox .slideitem label {
@@ -254,22 +249,22 @@ li {
 }
 
 [id='slide02']:checked~.slidelist .slideitem {
-	transform: translateX(-100%);
+	transform: translateX(-140%);
 	animation: slide02 20s infinite;
 }
 
 [id='slide03']:checked~.slidelist .slideitem {
-	transform: translateX(-200%);
+	transform: translateX(-280%);
 	animation: slide03 20s infinite;
 }
 
 [id='slide04']:checked~.slidelist .slideitem {
-	transform: translateX(-300%);
+	transform: translateX(-420%);
 	animation: slide04 20s infinite;
 }
 
 [id='slide05']:checked~.slidelist .slideitem {
-	transform: translateX(-400%);
+	transform: translateX(-560%);
 	animation: slide05 20s infinite;
 }
 
@@ -283,35 +278,35 @@ li {
 	}
 
 	25% {
-		left: -100%;
+		left: -110%;
 	}
 
 	48% {
-		left: -100%;
+		left: -110%;
 	}
 
 	50% {
-		left: -200%;
+		left: -221%;
 	}
 
 	63% {
-		left: -200%;
+		left: -221%;
 	}
 
 	65% {
-		left: -300%;
+		left: -331%;
 	}
 
 	75% {
-		left: -300%;
+		left: -331%;
 	}
 
 	78% {
-		left: -400%;
+		left: -443%;
 	}
 
 	98% {
-		left: -400%;
+		left: -443%;
 	}
 
 	100% {
@@ -329,35 +324,35 @@ li {
 	}
 
 	25% {
-		left: -100%;
+		left: -170%;
 	}
 
 	48% {
-		left: -100%;
+		left: -170%;
 	}
 
 	50% {
-		left: -200%;
+		left: -270%;
 	}
 
 	63% {
-		left: -200%;
+		left: -270%;
 	}
 
 	65% {
-		left: -300%;
+		left: -370%;
 	}
 
 	75% {
-		left: -300%;
+		left: -370%;
 	}
 
 	78% {
-		left: -400%;
+		left: -470%;
 	}
 
 	98% {
-		left: -400%;
+		left: -470%;
 	}
 
 	100% {
@@ -365,7 +360,7 @@ li {
 	}
 }
 
-@keyframes slide01 {
+@keyframes slide03 {
 	0% {
 		left: 0%;
 	}
@@ -375,35 +370,35 @@ li {
 	}
 
 	25% {
-		left: -100%;
+		left: -170%;
 	}
 
 	48% {
-		left: -100%;
+		left: -170%;
 	}
 
 	50% {
-		left: -200%;
+		left: -270%;
 	}
 
 	63% {
-		left: -200%;
+		left: -270%;
 	}
 
 	65% {
-		left: -300%;
+		left: -370%;
 	}
 
 	75% {
-		left: -300%;
+		left: -370%;
 	}
 
 	78% {
-		left: -400%;
+		left: -470%;
 	}
 
 	98% {
-		left: -400%;
+		left: -470%;
 	}
 
 	100% {
@@ -411,7 +406,7 @@ li {
 	}
 }
 
-@keyframes slide01 {
+@keyframes slide04 {
 	0% {
 		left: 0%;
 	}
@@ -421,35 +416,35 @@ li {
 	}
 
 	25% {
-		left: -100%;
+		left: -170%;
 	}
 
 	48% {
-		left: -100%;
+		left: -170%;
 	}
 
 	50% {
-		left: -200%;
+		left: -270%;
 	}
 
 	63% {
-		left: -200%;
+		left: -270%;
 	}
 
 	65% {
-		left: -300%;
+		left: -370%;
 	}
 
 	75% {
-		left: -300%;
+		left: -370%;
 	}
 
 	78% {
-		left: -400%;
+		left: -470%;
 	}
 
 	98% {
-		left: -400%;
+		left: -470%;
 	}
 
 	100% {
@@ -457,7 +452,7 @@ li {
 	}
 }
 
-@keyframes slide01 {
+@keyframes slide05 {
 	0% {
 		left: 0%;
 	}
@@ -467,35 +462,35 @@ li {
 	}
 
 	25% {
-		left: -100%;
+		left: -170%;
 	}
 
 	48% {
-		left: -100%;
+		left: -170%;
 	}
 
 	50% {
-		left: -200%;
+		left: -270%;
 	}
 
 	63% {
-		left: -200%;
+		left: -270%;
 	}
 
 	65% {
-		left: -300%;
+		left: -370%;
 	}
 
 	75% {
-		left: -300%;
+		left: -370%;
 	}
 
 	78% {
-		left: -400%;
+		left: -470%;
 	}
 
 	98% {
-		left: -400%;
+		left: -470%;
 	}
 
 	100% {
@@ -509,7 +504,6 @@ li {
 } */
 
 .pagination {
-
 	font-size: 16px;
 	color: #ff9e1b;
 }
@@ -552,9 +546,15 @@ li {
 	margin-left: 20px;
 }
 
+.about-content>li {
+	font-size: 13px;
+	margin-top: 20px;
+	margin-left: 20px;
+}
+
 .sinchon-schools {
 	width: 390px;
-	height: 83px;
+	height: fit-content;
 	background: #2b2b2c;
 	display: flex;
 	flex-direction: row;
@@ -567,20 +567,49 @@ li {
 	padding: 5px;
 }
 
+.school p {
+	font-family: 'Noto Sans KR';
+	font-style: normal;
+	font-weight: 700;
+	color: #ffffff;
+	margin-left: 10px;
+	margin-top: 10px;
+	top: 50px;
+	width: 100px;
+}
+
 .logo {
 	margin: 0 15px;
 	width: 50px;
 	height: 50px;
 }
 
-.school p {
-	margin-left: 10px;
-	margin-top: -1px;
-	width: 100px;
+#school {
+	top: 60px;
+	font-family: 'Noto Sans KR';
+	font-style: normal;
+	font-weight: 700;
+	;
 }
 
 #logo-ewha {
 	margin-left: 0;
+}
+
+#manage-members {
+	margin-top: -10px;
+}
+
+#manage-members>p {
+	margin: 0 25px;
+	font-size: 10px;
+	font-weight: bold;
+	align-items: center;
+}
+
+.sinchon-inform {
+	width: 390px;
+	height: 351px;
 }
 
 .sinchonthon-inform {
@@ -606,6 +635,44 @@ li {
 	color: black;
 	padding: 2% 0;
 	margin-bottom: 20px;
+}
+
+
+
+.timeline-board {
+	display: none;
+	padding-top: 20px;
+	text-align: center;
+	position: relative;
+	box-sizing: border-box;
+	border: 1px solid #323232;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.answeris {
+
+	padding: 10px;
+	text-align: left;
+	font-family: 'Noto Sans KR';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 28px;
+	line-height: 43px;
+
+	color: white;
+}
+
+.answertype {
+
+
+	font-family: 'Noto Sans KR';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 15px;
+	line-height: 22px;
+
+	color: #FFFFFF;
+
 }
 
 .highlight {
@@ -695,15 +762,21 @@ li {
 	color: white;
 
 	display: grid;
-	grid-template-columns: 1fr 4fr;
+	grid-template-columns: 1fr 10fr;
 
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 
 .contact-name {
-	margin-top: 0;
+	margin-top: 5px;
+	margin-bottom: 0px;
+}
+
+.contact-number {
+	font-size: 13px;
 }
 
 .contact-email {
 	margin-bottom: 15px;
+	font-size: 13px;
 }

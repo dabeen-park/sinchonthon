@@ -5,10 +5,42 @@
 <div class="medii-part2">
 
     <div class="mypage3 mb-5">
+        {% if post.university == '1' %}
         <p class="word_1" id="mschool">서강대학교</p>
-        <p class="word_1" id="mname">홍 길 동 🦁</p>
+        {% elif post.university == '2' %}
+        <p class="word_1" id="mschool">연세대학교</p>
+        {% elif post.university == '3' %}
+        <p class="word_1" id="mschool">이화여자대학교</p>
+        {% elif post.university == '4' %}
+        <p class="word_1" id="mschool">홍익대학교</p>
+
+        {% endif %}
+
+        <p class="word_1" id="mname">{{post.name}} 🦁</p>
+
+        {% if post.track == '1' %}
         <p class="word_1" id="mposi">Backend Developer 🛠</p>
+        {% elif post.track == '2' %}
+        <p class="word_1" id="mposi">Frontend Developer 🖼</p>
+        {% elif post.track == '3' %}
+        <p class="word_1" id="mposi">PM / Designer 🖋</p>
+        {% endif %}
+
+
+        {% if post.university == '1' %}
         <img class="school_card_im" src="{% static 'img/school/sogang_m.png'%}" alt="">
+        {% elif post.university == '2' %}
+        <img class="school_card_im_2 mb-5" src="{% static 'img/school/yonsei_m.png'%}"
+            style="transform:rotate(-10.89deg);" alt="">
+        {% elif post.university == '3' %}
+        <img class="school_card_im_2 mb-5" src="{% static 'img/school/ewha_m.png'%}"
+            style="transform:rotate(-10.89deg);" alt="">
+
+        {% elif post.university == '4' %}
+        <img class="school_card_im_2 mb-5" src="{% static 'img/school/hongik_m.png'%}"
+            style="transform:rotate(-10.89deg);" alt="">
+
+        {% endif %}
         <div class="t_b_butt" style="text-align:center;">
             <img onclick='team();' src="{% static 'img/button/t_b_button.png'%}" alt="">
         </div>
@@ -16,21 +48,41 @@
 
     <div class="team_result mb-4" id="team">
         <div>
-            <p class="word_1" id="Nteam">N팀</p>
+            <p class="word_1" id="Nteam">{{post.team}}팀</p>
         </div>
         <div class="team_box">
             <div class="team_ele">
-                <p class="word_1" id="twiths"><span class="ingredient">연세대학교</span> 김가나 <br>
-                    <span class="ingredient">서강대학교</span> 김다라 <br>
-                    <span class="ingredient">이화여자대학교</span> 김마바 <br>
-                    <span class="ingredient">홍익대학교</span> 김사아
+                <p class="word_1" id="twiths">
+                    {% for person in team_list %}
+                    <span class="ingredient">
+                        {% if person.university == '1' %}
+                        서강대학교
+                        {% elif person.university == '2' %}
+                        연세대학교
+                        {% elif person.university == '3' %}
+                        이화여자대학교
+                        {% elif person.university == '4' %}
+                        홍익대학교
+                        {% endif %}
+
+                    </span> {{person}} <br>
+                    {% endfor %}
+
                 </p>
             </div>
             <div class="team_ele" id="twithp">
-                <p class="word_1">기획디자인 <br>
-                    프론트엔트 <br>
-                    백엔드 <br>
-                    백엔드</p>
+                <p class="word_1">
+                    {% for person in team_list %}
+                    {% if person.track == '1' %}
+                    백엔드
+                    {% elif person.track == '2' %}
+                    프론트엔드
+                    {% elif person.track == '3' %}
+                    기획/디자인
+                    {% endif %}
+                    <br>
+                    {% endfor %}
+                </p>
             </div>
         </div>
     </div>
