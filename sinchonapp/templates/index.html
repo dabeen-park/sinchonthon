@@ -4,272 +4,431 @@
 {% block content %}
 
 <div class="main-page">
-    <div class="main-background">
-        <img src="{% static 'img/main(390x254).png'%}" />
-    </div>
-    <div class="title">
-        <div class="sinchonthon-series">제10회</div>
-        <div class="sinchonthon-title">신<br />촌<br />톤<br /></div>
-        <div class="sinchonthon-period">8/27~8/28</div>
-    </div>
+	<div class="main-background">
+		<img src="{% static 'img/main(390x254).png'%}" />
+	</div>
+	<div class="title">
+		<div class="sinchonthon-series">제10회</div>
+		<div class="sinchonthon-title">신<br />촌<br />톤<br /></div>
+		<div class="sinchonthon-period">8/27~8/28</div>
+	</div>
 </div>
 <div class="countdown-page">
-    <div class="timer">
-        <p class="timer-notice">
-            신촌톤 지원 <span class="highlight">시작</span>까지
-        </p>
-        <div id="applystart"></div>
-        <!-- <div class="applystart-button">
-            <a href=""><img src="" alt="" /></a>
-        </div> -->
+	<div class="timer">
+		<p class="timer-notice">
+			신촌톤 지원 <span class="highlight">마감</span>까지
+		</p>
+		<div id="applyend"></div>
+		<script>
+			CountDownTimer('08/25/2022 18:00', 'applyend')
+			function CountDownTimer(dt, id) {
+				var end = new Date(dt);
 
-        <div class="camga_click">
-            <img src="{% static 'img/l_hand.png'%}" alt="">
-            {% if user.is_authenticated %}
-            <a href="{% url 'sinchong' %}">
-                <img src="{% static 'img/cham_click.png'%}" alt="">
-            </a>
-            {% else %}
-            <a href="{% provider_login_url 'kakao' %}">
-                <img src="{% static 'img/cham_click.png' %}" alt="">
-            </a>
-            {% endif %}
-            <img src="{% static 'img/r_hand.png'%}" alt="">
-        </div>
-        <p class="apply-guideline">위 버튼을 눌러 지원서를 작성해주세요</p>
+				var _second = 1000;
+				var _minute = _second * 60;
+				var _hour = _minute * 60;
+				var _day = _hour * 24;
+				var timer;
 
-    </div>
-    <!-- 
-    <div class="timer">
-        신촌톤 지원 <span class="timer-highlight">마감</span>까지
-        <div id="applyend"></div>
-        <br />
-    </div>
+				function showRemaining() {
+					var now = new Date();
+					var distance = end - now;
+					if (distance < 0) {
+						clearInterval(timer);
+						document.getElementById('applyend').innerHTML = '지원 마감!';
+						return;
+					}
+					var days = Math.floor(distance / _day);
+					var hours = Math.floor((distance % _day) / _hour);
+					var minutes = Math.floor((distance % _hour) / _minute);
+					var seconds = Math.floor((distance % _minute) / _second);
 
-    <div class="timer">
-        신촌톤 <span class="timer-highlight">시작</span>까지
-        <div id="programstart"></div>
-        <br />
-    </div> -->
+					document.getElementById('applyend').innerHTML = 'D-' + days + ' ';
+					if (hours < 10) {
+						document.getElementById('applyend').innerHTML += '0' + hours + ' : ';
+					}
+					else {
+						document.getElementById('applyend').innerHTML += hours + ' : ';
+					}
+					if (minutes < 10) {
+						document.getElementById('applyend').innerHTML += '0' + minutes + ' : ';
+					}
+					else {
+						document.getElementById('applyend').innerHTML += minutes + ' : ';
+					}
+					if (seconds < 10) {
+						document.getElementById('applyend').innerHTML += '0' + seconds;
+					}
+					else {
+						document.getElementById('applyend').innerHTML += seconds;
+					}
+				}
+
+				timer = setInterval(showRemaining, 1000);
+			}
+		</script>
+
+		<div class="camga_click">
+			<img src="{% static 'img/l_hand.png'%}" alt="" />
+			{% if user.is_authenticated %}
+			<a href="{% url 'sinchong' %}">
+				<img src="{% static 'img/cham_click.png'%}" alt="" />
+			</a>
+			{% else %}
+			<a href="{% provider_login_url 'kakao' %}">
+				<img src="{% static 'img/cham_click.png' %}" alt="" />
+			</a>
+			{% endif %}
+			<img src="{% static 'img/r_hand.png'%}" alt="" />
+		</div>
+		<p class="apply-guideline">위 버튼을 눌러 지원서를 작성해주세요</p>
+	</div>
 </div>
 <div class="management-page">
-    <div class="management-title">
-        <span class="highlight">신촌톤</span>을 준비한 분들
-    </div>
-    <div class="management-img">
-        <div class="slidebox">
-            <input type="radio" name="slide" id="slide01" checked />
-            <input type="radio" name="slide" id="slide02" />
-            <input type="radio" name="slide" id="slide03" />
-            <input type="radio" name="slide" id="slide04" />
-            <input type="radio" name="slide" id="slide05" />
-            <ul class="slidelist">
-                <li class="slideitem">
-                    <div>
-                        <label for="slide05" class="left"></label>
-                        <label for="slide02" class="right"></label>
-                        <a><img class="management-img-detail" src="../static/img/introduce_yonsei(390x390).png" /></a>
-                    </div>
-                </li>
-                <li class="slideitem">
-                    <div>
-                        <label for="slide01" class="left"></label>
-                        <label for="slide03" class="right"></label>
-                        <a>
-                            <img class="management-img-detail" src="../static/img/introduce_ewha(390x390).png" />
-                        </a>
-                    </div>
-                </li>
-                <li class="slideitem">
-                    <div>
-                        <label for="slide02" class="left"></label>
-                        <label for="slide04" class="right"></label>
-                        <a>
-                            <img class="management-img-detail" src="../static/img/introduce_sugang(390x390).png" />
-                        </a>
-                    </div>
-                </li>
-                <li class="slideitem">
-                    <div>
-                        <label for="slide01" class="left"></label>
-                        <label for="slide03" class="right"></label>
-                        <a>
-                            <img class="management-img-detail" src="../static/img/introduce_sugang2(390x390).png" />
-                        </a>
-                    </div>
-                </li>
-                <li class="slideitem">
-                    <div>
-                        <label for="slide03" class="left"></label>
-                        <label for="slide05" class="right"></label>
-                        <a>
-                            <img class="management-img-detail" src="../static/img/introduce_hongik(390x390).png" />
-                        </a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <!-- <script src="../static/js/slide.js"></script> -->
-    <div id="moveSlide"></div>
-    <div class="pagination">
-        <div style="margin: auto;">1 2 3 4 5</div>
-    </div>
+	<div class="management-title">
+		<span class="highlight">신촌톤</span>을 준비한 분들
+	</div>
+	<div class="management-img">
+		<div class="slidebox">
+			<input type="radio" name="slide" id="slide01" checked />
+			<input type="radio" name="slide" id="slide02" />
+			<input type="radio" name="slide" id="slide03" />
+			<input type="radio" name="slide" id="slide04" />
+			<input type="radio" name="slide" id="slide05" />
+			<ul class="slidelist">
+				<li class="slideitem">
+					<div>
+						<label for="slide05" class="left"></label>
+						<label for="slide02" class="right"></label>
+						<a><img class="management-img-detail" src="../static/img/introduce_yonsei(390x390).png" /></a>
+					</div>
+				</li>
+				<li class="slideitem">
+					<div>
+						<label for="slide01" class="left"></label>
+						<label for="slide03" class="right"></label>
+						<a>
+							<img class="management-img-detail" src="../static/img/introduce_ewha(390x390).png" />
+						</a>
+					</div>
+				</li>
+				<li class="slideitem">
+					<div>
+						<label for="slide02" class="left"></label>
+						<label for="slide04" class="right"></label>
+						<a>
+							<img class="management-img-detail" src="../static/img/introduce_sugang(390x390).png" />
+						</a>
+					</div>
+				</li>
+				<li class="slideitem">
+					<div>
+						<label for="slide01" class="left"></label>
+						<label for="slide03" class="right"></label>
+						<a>
+							<img class="management-img-detail" src="../static/img/introduce_sugang2(390x390).png" />
+						</a>
+					</div>
+				</li>
+				<li class="slideitem">
+					<div>
+						<label for="slide03" class="left"></label>
+						<label for="slide05" class="right"></label>
+						<a>
+							<img class="management-img-detail" src="../static/img/introduce_hongik(390x390).png" />
+						</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
 </div>
 <div class="about-sinchonthon">
-    <div class="about-contents">
-        <p class="about-title">신촌톤이란?</p>
-        <p class="about-semititle">신촌톤의 목적</p>
-        <p class="about-content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-            minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+	<div class="about-contents">
+		<p class="about-title">신촌톤이란?</p>
+		<p class="about-semititle">﹒신촌톤의 목적</p>
+		<p class="about-content">
+			<li class="about-content">멋쟁이사자처럼 대학에서 한 학기 동안 학습한 내용을 바탕으로 <br />타 대학 멋쟁이사자처럼 대학 학생들과 개발을 진행하여 협업에 <br />대한
+				경험을 제공</li>
+			<li class="about-content">1박 2일동안 멋쟁이사자처럼 대학 학생들과 개발을 진행하면서 <br />상호 협력 및 발전을 목표로 코딩에 대한 즐거움과 학습효과 제공</li>
+			<li class="about-content">멋쟁이사자처럼 대학 연합 대학교의 친목 도모</li>
+		</p>
 
-        <p class="about-semititle">신촌톤 참여 대학</p>
-        <div class="sinchon-schools">
-            <div class="school">
-                <img class="logo" src="../static/img/390px (1)/yonsei_logo.png" />
-                <p>연세대학교</p>
-            </div>
-            <div class="school">
-                <img class="logo" src="../static/img/390px (1)/sugang_logo.png" />
-                <p>서강대학교</p>
-            </div>
-            <div class="school">
-                <img class="logo" src="../static/img/390px (1)/ewha_logo.png" />
-                <p id="logo-ewha">이화여자대학교</p>
-            </div>
-            <div class="school">
-                <img class="logo" src="../static/img/390px (1)/hongik_logo.png" />
-                <p>홍익대학교</p>
-            </div>
-        </div>
-        <div class="team">
-            <p class="about-semititle">팀 구성 방법</p>
-            <p class="about-content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            </p>
-        </div>
-        <div class="award">
-            <p class="about-semititle">수상 및 기준</p>
-            <p class="about-content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            </p>
-        </div>
-        <div class="sinchonthon-inform">
-            <div class="detailed-inform">
-                <div class="inform-title">
-                    <span class="highlight">신촌톤</span> 정보 모아보기
-                </div>
-                <img class="sinchon-inform" src="../static/img/sinchon-inform.png" />
-                <p class="timeline-notice">
-                    자세한 타임라인이 궁금하다면?<br />아래 버튼을 클릭해보세요!
-                </p>
-                <div class="timeline-open">진행 타임라인 한눈에 보기 ⏰👀</div>
-                <div class="timeline-modal">
-                    <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                        Consectetur quam nobis quis corrupti amet maxime neque, optio,
-                        in illo, voluptatibus consequuntur! Rerum quo ea nulla qui,
-                        maxime consectetur magni soluta!
-                    </p>
-                    <button class="close-modal">✖</button>
-                </div>
-            </div>
-        </div>
-    </div>
+		<p class="about-semititle">﹒신촌톤 참여 대학</p>
+		<div class="sinchon-schools">
+			<div class="school">
+				<img class="logo" src="../static/img/390px (1)/yonsei_logo.png" />
+				<p id="school" style="margin-top: 5px">연세대학교</p>
+			</div>
+			<div class="school">
+				<img class="logo" src="../static/img/390px (1)/sugang_logo.png" />
+				<p id="school" style="margin-top: 5px">서강대학교</p>
+			</div>
+			<div class="school">
+				<img class="logo" src="../static/img/390px (1)/ewha_logo.png" />
+				<p id="logo-ewha" style="margin-top: 5px">이화여자대학교</p>
+			</div>
+			<div class="school">
+				<img class="logo" src="../static/img/390px (1)/hongik_logo.png" />
+				<p id="school" style="margin-top: 5px">홍익대학교</p>
+			</div>
+		</div>
+		<div class="team">
+			<p class="about-semititle">﹒팀 구성 방법</p>
+			<p class="about-content">
+				4~5명의 기획디자인, 프론트엔드, 백엔드 트랙에 비율을 맞추어<br />
+				다른 대학의 아기사자들과 팀빌딩을 합니다. 다른 대학의 사람들과 <br />
+				함께 멋진 서비스를 만들어 주세요! 😯
+			</p>
+		</div>
+		<div class="award">
+			<p class="about-semititle">﹒개발 방법</p>
+			<p class="about-content">
+				<ul class="about-content">
+					<li>개발 스택: html/css, javascript, react, django 중 자유롭게 활용</li>
+					<li>주제: <span class="highlight">오프라인 활동을 활성화할 수 있는 모든 서비스</span></li>
+				</ul>
+			</p>
+		</div>
+		<div class="award">
+			<p class="about-semititle">﹒수상 및 평가 기준</p>
+			<p class="about-content">
+				<ul class="about-content">
+					<li>7팀 중 <span class="highlight">2팀</span> 수상 예정</li>
+					<li>평가 방법: 신촌 해커톤 참가 운영진 내부 평가 <br />*운영진이 마련한 점수표에 따라 공정하게 채점할 예정입니다!</li>
+					<li>평가 기준: 해커톤 진행시 공개됩니다.</li>
+					<li>평가 비율: 사업계획서 및 사업발표자료 및 발표(40%),<br />기술 구현도(60%)</li>
+				</ul>
+			</p>
+		</div>
+		<div class="sinchonthon-inform">
+			<div class="detailed-inform">
+				<div class="inform-title">
+					<span class="highlight">신촌톤</span> 정보 모아보기
+				</div>
+				<img class="sinchon-inform" src="../static/img/information_table.png" />
+				<p class="timeline-notice">
+					자세한 타임라인이 궁금하다면?<br />아래 버튼을 클릭해보세요!
+				</p>
+				<div class="timeline-open" onclick="timelineis();">진행 타임라인 한눈에 보기 ⏰👀</div>
+				<div class="timeline-board">
+					⏰ 타임라인 ⏰
+					<img src="{% static '/img/timeline.png' %}" alt="">
+					<div class="timeline-open" onclick="timelinec()">닫기</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
 </div>
 <div class="fqa-page">
-    <div class="about-title">FQA</div>
-    <div class="fqa-container">
-        <img src="../static/img/390px (1)/fqabackground(390px).png" width="390px" height="352px" />
-        <div class="fqa-images">
-            <div>
-                <img src="../static/img/snack(390x390).png" />
-            </div>
-            <div>
-                <img src="../static/img/rest(390x390).png" />
-            </div>
-            <div>
-                <img src="../static/img/outside(390x390).png" />
-            </div>
-            <div>
-                <img src="../static/img/givesnack(1440px).png" />
-            </div>
-            <div>
-                <img src="../static/img/soju(390x390).png" />
-            </div>
-            <div>
-                <img src="../static/img/closed(1440px).png" />
-            </div>
-        </div>
-        <div class="fqa-guide">
-            궁금한 내용에 대한 포스터를 클릭하면<br />질문이 아래로 나타나요!✨
-        </div>
-    </div>
+	<div class="about-title">FQA</div>
+	<div class="fqa-container">
+		<img
+			src="../static/img/390px (1)/fqabackground(390px).png"
+			width="390px"
+			height="352px"
+		/>
+		<div class="fqa-images">
+			<div class="question1">
+				<img src="../static/img/snack(390x390).png" />
+			</div>
+			<div class="question2">
+				<img src="../static/img/rest(390x390).png" />
+			</div>
+			<div class="question3">
+				<img src="../static/img/outside(390x390).png" />
+			</div>
+			<div class="question4">
+				<img src="../static/img/givesnack(1440px).png" />
+			</div>
+			<div class="question5">
+				<img src="../static/img/soju(390x390).png" />
+			</div>
+			<div class="question6">
+				<img src="../static/img/closed(1440px).png" />
+			</div>
+		</div>
+		<div class="fqa-guide">
+			궁금한 내용에 대한 포스터를 클릭하면<br />질문이 아래로 나타나요!✨
+		</div>
+		<div class="fqa-answers">
+			<div class="answer1">
+				<strong><span id="Q">Q.</span>외부음식 반입 가능한가요?</strong>
+				<p>
+					간단한 간식거리와 음료만 반입 가능합니다. 그렇다고 짜장면 싸오시면 안됩니다!<br />
+					해커톤 장소에 정수기가 구비되어 있어 물을 따로 준비할 필요는 없지만, 개인 텀블러를 지참해주세요😉
+				</p>
+			</div>
+			<div class="answer2">
+				<strong><span id="Q">Q.</span>휴식 시간이 따로 있나요?</strong>
+				<p>
+					휴식시간은 따로 없습니다. 개발 시간에 팀원들과 협의하여 자율적으로 휴식해주세요.
+				</p>
+			</div>
+			<div class="answer3">
+				<strong><span id="Q">Q.</span>외출 가능한가요?</strong>
+				<p>
+					외출은 불가능합니다. 도망가지 마세요😈
+				</p>
+			</div>
+			<div class="answer4">
+				<strong><span id="Q">Q.</span>간식을 제공하나요?</strong>
+				<p>
+					초코바와 젤리, 레드불과 같은 간단한 주전부리를 제공할 예정입니다. 또한 야식으로는 홍루이젠 샌드위치가 제공되고, 아침식사로는 본도시락이 제공됩니다.
+				</p>
+			</div>
+			<div class="answer5">
+				<strong><span id="Q">Q.</span>술을 마셔도 되나요?</strong>
+				<p>
+					금주입니다. 몰래 가져오시면 운영진이 몰래 훔쳐갑니다. ^^ 🍺
+				</p>
+			</div>
+			<div class="answer6">
+				<strong><span id="Q">Q.</span>개발이 일찍 끝나는 팀은 <br />무엇을 하나요?</strong>
+				<p>
+					개발이 일찍 끝나는 팀은 발표 준비를 하거나 자유롭게 휴식을 취해주시면 됩니다.
+				</p>
+			</div>
+		</div>
+		<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+		<script>
+			$(document).ready(function() {
+    			$('.question1').click(function() {
+        			$('.answer1').slideToggle(400);
+				});
+				$('.question2').click(function() {
+					$('.answer2').slideToggle(400);
+				});
+				$('.question3').click(function() {
+					$('.answer3').slideToggle(400);
+				});
+				$('.question4').click(function() {
+				$('.answer4').slideToggle(400);
+				});
+				$('.question5').click(function() {
+					$('.answer5').slideToggle(400);
+				});
+				$('.question6').click(function() {
+				$	('.answer6').slideToggle(400);
+    			});
+			});
+		</script> -->
+	</div>
 </div>
 <div class="support">
-    <div class="about-title">함께해주셔서 감사합니다</div>
+	<div class="about-title">함께해주셔서 감사합니다</div>
 
-    <p class="about-semititle">장소제공</p>
-    <div class="sinchon-schools">
-        <img src="" />
-    </div>
-    <p class="about-semititle">제품제공</p>
-    <div class="sinchon-schools"></div>
-    <p class="about-semititle">운영진</p>
-    <div class="sinchon-schools"></div>
+	<p class="about-semititle">장소제공</p>
+	<div class="sinchon-schools">
+		<img src="static/img/ictcoc.jpeg" style="height: 63px;" />
+	</div>
+	
+	<p class="about-semititle">운영진</p>
+	<div class="sinchon-schools">
+		<div class="school">
+			<img class="logo" src="../static/img/390px (1)/yonsei_logo.png" />
+			<p id="school" style="margin-top: 5px">연세대학교</p>
+			<div id="manage-members">
+				<p>박진효</p>
+				<p>김희연</p>
+				<p>이수민</p>
+				<p>전솔아</p>
+			</div>
+		</div>
+		<div class="school">
+			<img class="logo" src="../static/img/390px (1)/sugang_logo.png" />
+			<p id="school" style="margin-top: 5px">서강대학교</p>
+			<div id="manage-members">
+				<p>김찬수</p>
+				<p>박다빈</p>
+				<p>김동윤</p>
+				<p>이육샛별</p>
+			</div>
+		</div>
+		<div class="school">
+			<img class="logo" src="../static/img/390px (1)/ewha_logo.png" />
+			<p id="logo-ewha" style="margin-top: 5px">이화여자대학교</p>
+			<div id="manage-members">
+				<p>김혜빈</p>
+				<p>김도연</p>
+				<p>정다윤</p>
+			</div>
+		</div>
+		<div class="school">
+			<img class="logo" src="../static/img/390px (1)/hongik_logo.png" />
+			<p id="school" style="margin-top: 5px">홍익대학교</p>
+			<div id="manage-members">
+				<p>김유진</p>
+				<p>김도연</p>
+				<p>김지후</p>
+				<p>박선형</p>
+				<p>이은</p>
+			</div>
+		</div>
+	</div>
 </div>
-<div class="contact mb-5 ">
-    <p class="about-title">운영진 연락처</p>
-    <p class="contact-notice">
-        궁금증을 해결하고 싶거나,<br />
-        해커톤 도중 긴급하게 해결해야 할 일이 있다면<br />
-        아래 연락처로 연락 바랍니다🔔
-    </p>
-    <div class="contact-container">
-        <div class="manage-contact">
-            <img class="logo" src="../static/img/390px (1)/yonsei_logo.png" width="55px" height="55px" />
-            <div>
-                <p class="contact-name">연세대학교 대표 박진효</p>
-                <span class="contact-number">010-xxxx-xxxx</span>
-                <span class="contact-email">연세대@이메일</span>
-            </div>
-        </div>
-        <div class="manage-contact">
-            <img class="logo" src="../static/img/390px (1)/sugang_logo.png" width="55px" height="55px" />
-            <div>
-                <p class="contact-name">서강대학교 대표 김찬수, 박다빈</p>
-                <span class="contact-number">010-xxxx-xxxx</span>
-                <span class="contact-email">서강대@이메일</span>
-            </div>
-        </div>
-        <div class="manage-contact">
-            <img class="logo" src="../static/img/390px (1)/ewha_logo.png" width="55px" height="55px" />
-            <div>
-                <p class="contact-name">이화여자대학교 대표 김혜빈</p>
-                <span class="contact-number">010-xxxx-xxxx</span>
-                <span class="contact-email">이화여대@이메일</span>
-            </div>
-        </div>
-        <div class="manage-contact">
-            <img class="logo" src="../static/img/390px (1)/hongik_logo.png" width="55px" height="55px" />
-            <div>
-                <p class="contact-name">홍익대학교 대표 김유진</p>
-                <span class="contact-number">010-xxxx-xxxx</span>
-                <span class="contact-email">홍익대@이메일</span>
-            </div>
-        </div>
-    </div>
+<div class="contact mb-5">
+	<p class="about-title">운영진 연락처</p>
+	<p class="contact-notice">
+		궁금증을 해결하고 싶거나,<br />
+		해커톤 도중 긴급하게 해결해야 할 일이 있다면<br />
+		아래 연락처로 연락 바랍니다🔔
+	</p>
+	<div class="contact-container">
+		<div class="manage-contact">
+			<img class="logo" src="../static/img/390px (1)/yonsei_logo.png" width="55px" height="55px" />
+			<div>
+				<p class="contact-name">연세대학교 대표 박진효</p>
+				<span class="contact-number">010-2044-4630 ￜ </span>
+				<span class="contact-email">vkstk0131@yonsei.ac.kr</span>
+			</div>
+		</div>
+		<div class="manage-contact">
+			<img class="logo" src="../static/img/390px (1)/sugang_logo.png" width="55px" height="55px" />
+			<div>
+				<p class="contact-name">서강대학교 대표 김찬수, 박다빈</p>
+				<span class="contact-number">010-4168-8703 ￜ </span>
+				<span class="contact-email">gamgyut777@sogang.ac.kr</span>
+			</div>
+		</div>
+		<div class="manage-contact">
+			<img class="logo" src="../static/img/390px (1)/ewha_logo.png" width="55px" height="55px" />
+			<div>
+				<p class="contact-name">이화여자대학교 대표 김혜빈</p>
+				<span class="contact-number">010-2085-5585 ￜ </span>
+				<span class="contact-email">ewha@likelion.org</span>
+			</div>
+		</div>
+		<div class="manage-contact">
+			<img class="logo" src="../static/img/390px (1)/hongik_logo.png" width="55px" height="55px" />
+			<div>
+				<p class="contact-name">홍익대학교 대표 김유진</p>
+				<span class="contact-number">010-9937-4176 ￜ </span>
+				<span class="contact-email">gene028@naver.com</span>
+			</div>
+		</div>
+	</div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+	crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+	crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
 
+	function timelineis() {
+		// 타임라인 뜨도록하기
+		$(".timeline-board").show();
+	}
+
+	function timelinec() {
+		//타임라인 닫도록 하기
+		$(".timeline-board").hide();
+	}
+
+</script>
 {% endblock %}
