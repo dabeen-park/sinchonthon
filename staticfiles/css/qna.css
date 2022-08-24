@@ -1,0 +1,18 @@
+.answer1, .answer2, .answer3, .answer4, .answer5, .answer6 {
+    margin: 20px 20px;
+    font-family: 'Noto Sans KR', sans-serif;
+    display: none;
+    overflow: hidden;
+    font-size: 15px;
+    color: #fff;
+    /* padding: 27px 0; */
+}
+    
+#Q {
+    color: orange;
+}
+
+strong {
+    font-size: 28px;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,131 @@
+/* .total_box {
+    display: flex;
+    flex-direction: column;
+} */
+
+nav {
+
+    width: 390px;
+    height: 59px;
+    left: 0px;
+    top: 0px;
+
+    background: #403D3C;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    display: flex;
+}
+
+.logo {
+
+    position: relative;
+    width: 51px;
+    height: 51px;
+    left: 1px;
+    top: 2px;
+
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.avatar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+
+    position: relative;
+    width: 40px;
+    height: 40px;
+    left: 258px;
+    top: 10px;
+}
+
+.medii-part {
+    display: flex;
+    flex-direction: column;
+    height: 647.29px;
+    width: 387.06px;
+    background:
+        url(/static/img/back_1.png) no-repeat -0.5px 440px,
+        url(/static/img/back_2.png) no-repeat 203px -50px,
+        url(/static/img/back_img.png);
+
+
+
+}
+
+footer {
+
+    width: 390px;
+    height: 137px;
+    left: 0px;
+    top: 707px;
+
+    background: #2B2B2C;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.word3-1 {
+    position: relative;
+
+    top: 7px;
+
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 14px;
+
+    color: #FFFFFF;
+}
+
+.word3-2 {
+    position: relative;
+
+
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 14px;
+
+    color: #FFFFFF;
+}
+
+.word3-3 {
+    position: relative;
+
+    top: -8px;
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 14px;
+
+    color: #FFFFFF;
+}
+
+.word3-4 {
+
+    position: relative;
+
+    top: -20px;
+
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 19px;
+    /* identical to box height */
+
+
+    color: #FFFFFF;
+}
+
+.ll_lo {
+    position: relative;
+
+    left: 43px;
+    top: -42px;
+}

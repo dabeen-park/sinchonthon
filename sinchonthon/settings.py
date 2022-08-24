@@ -41,8 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'sinchonapp',
     'accounts',
-        # The following apps are required:
-    
+    # The following apps are required:
+
     'django.contrib.sites',
 
     'allauth',
@@ -140,6 +140,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'sinchonapp', 'static'),
